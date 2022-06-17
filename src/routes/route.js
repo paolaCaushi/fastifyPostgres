@@ -1,8 +1,8 @@
-const getAllTodos = require('../schemas/getAllTodos')
-const getTodo = require('../schemas/getTodo')
-const postTodo = require('../schemas/postTodo')
-const deleteTodo = require('../schemas/deleteTodo')
-const updateTodo = require('../schemas/updateTodo')
+const getAllTodos = require('../schema/getAllTodos')
+const getTodo = require('../schema/getTodo')
+const postTodo = require('../schema/postTodo')
+const deleteTodo = require('../schema/deleteTodo')
+const updateTodo = require('../schema/updateTodo')
 let Todos = require('../Todos')
 
 const todosRoute=(fastify, options, done) => {

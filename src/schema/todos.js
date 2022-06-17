@@ -3,7 +3,7 @@ const todos = {
     properties: {
         id: {type: 'string'},
         title: {type: 'string'},
-        completed: {type: 'string'}
+        completed: {type: 'boolean'}
       },
   } 
   module.exports = todos

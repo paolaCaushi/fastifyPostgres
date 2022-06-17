@@ -11,7 +11,7 @@ POST http://127.0.0.1:3000/v2 HTTP/1.1
 content-type: application/json
 
 {
-    "title": "molestiae perspiciatis ipsa",
+    "title": "hfjhkfjeojfiowerofjsdkheui",
     "completed": false
 }
 
@@ -21,7 +21,7 @@ PUT http://127.0.0.1:3000/v2/1 HTTP/1.1
 content-type: application/json
 
 {
-    "title": "molestiae perspiciatis ipsa",
+    "title": "mciweuhdiuwehdqdjion",
     "completed": false
 }
 

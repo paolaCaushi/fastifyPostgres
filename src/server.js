@@ -27,7 +27,6 @@ app.get('/time', (req, reply) => {
         )
     }
 })
-
 app.listen(3000, function(err, address){
     if(err){
         app.log.error(err)

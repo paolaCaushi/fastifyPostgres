@@ -1,45 +1,37 @@
-const { build } = require("./../src/app");
+const {build} = require('../src/app');
 
-const setup_tables = `CREATE TABLE IF NOT EXISTS "public"."todos" ( \
-    "id" SERIAL PRIMARY KEY, \
-    "title" VARCHAR(200), \
-    "completed" BOOLEAN NOT NULL, \
-    "gross_amount" DECIMAL NOT NULL, \
-    "net_amount" DECIMAL NOT NULL, \
-    "excluded_vat_amount" DECIMAL NOT NULL \
-  )`;
+const createTableSql = "CREATE TABLE IF NOT EXISTS todos (id serial PRIMARY KEY, title VARCHAR(255) ,completed BOOLEAN NOT NULL,groos_amount NUMERIC,net_amount NUMERIC, excluded_vat_amount Numeric);";
 
-const clear_tables = `DELETE FROM todos`;
-const insertTodos =
-  "INSERT INTO todos (title, completed, gross_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4, $5)";
+const clearTableSql = "DELETE FROM todos";
 
-module.exports = function setupTestEnv() {
-  const app = build(
-    { logger: true },
-    {},
-    {
-      connectionString:
-        "postgres://postgres:postgres@127.0.0.1:5432/postgres_test",
-    }
-  );
+const insertSql = "INSERT INTO todos (title, completed, groos_amount, net_amount, excluded_vat_amount) VALUES ($1, $2, $3, $4, $5)";
 
-  beforeAll(async () => {
-    await app.ready();
-    await app.pg.query(setup_tables);
-    await app.pg.query(clear_tables);
-  });
+ function setupTestEnv() {
 
-  beforeEach(async () => {
-    await app.pg.query(insertTodos, ["bsbwhd", "truw", 200, 100, 10]);
-  });
 
-  afterEach(async () => {
-    await app.pg.query(clear_tables);
-  });
+    const app = build({logger: true},{},
+        { connectionString:"postgres://postgres:postgres@localhost:5432/postgres_test"});
 
-  afterAll(async () => {
-    app.close();
-  });
+        beforeAll(async () => {
+            await app.ready();
+            await app.pg.query(createTableSql);
+            await app.pg.query(clearTableSql);
+        })
 
-  return app;
-};
+        beforeEach(async () => {
+            await app.pg.query(insertSql, ['Test', 'false',20, 16.67, 3.33]);
+
+        })
+
+        afterEach(async () => {
+            await app.pg.query(clearTableSql);
+        })
+
+        afterAll(async () => {
+            app.close()
+
+        })
+        return app
+}
+
+module.exports = {setupTestEnv};
