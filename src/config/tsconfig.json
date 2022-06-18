@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "plugins": [
+        {
+          "name": "@manuth/typescript-eslint-plugin",
+          "ignoreJavaScript": true,
+          "configFile": "custom.eslintrc.js"
+        }
+      ]
+    }
+  }

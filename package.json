@@ -1,10 +1,11 @@
 {
-  "name": "node_app",
+  "name": "fastifypostgres",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
     "test": "jest --coverage --runInBand",
     "test:watch": "jest --watchAll"
   },
@@ -15,9 +16,11 @@
     "@fastify/swagger": "^7.3.0",
     "dotenv": "^16.0.1",
     "envalid": "^7.3.1",
+    "fastify": "^4.0.2",
     "fastify-swagger": "^5.2.0",
     "nodemon": "^2.0.16",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "pg-native": "^3.0.0"
   },
   "devDependencies": {
     "jest": "^28.1.1"

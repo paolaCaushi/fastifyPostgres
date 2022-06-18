@@ -1,13 +1,14 @@
 ### GET ALL
-GET http://127.0.0.1:3000/v2 HTTP/1.1
+GET http://127.0.0.1:8080/v2 HTTP/1.1
 
 ### GET ONE 
-GET http://127.0.0.1:3000/v2 HTTP/1.1
+GET http://127.0.0.1:8080/v2/7 HTTP/1.1
 
-
+### GET SWAGGER
+GET http://127.0.0.1:8080/docs HTTP/1.1
 
 ### Post 
-POST http://127.0.0.1:3000/v2 HTTP/1.1
+POST http://127.0.0.1:8080/v2 HTTP/1.1
 content-type: application/json
 
 {
@@ -15,9 +16,8 @@ content-type: application/json
     "completed": false
 }
 
-
 ### Update one  
-PUT http://127.0.0.1:3000/v2/1 HTTP/1.1
+PUT http://127.0.0.1:8080/v2/2 HTTP/1.1
 content-type: application/json
 
 {
@@ -26,7 +26,5 @@ content-type: application/json
 }
 
 ### Delete ONE 
-DELETE  http://127.0.0.1:3000/v2/1 HTTP/1.1
+DELETE  http://127.0.0.1:8080/v2/7 HTTP/1.1
 
-### DB test
-GET http://127.0.0.1:3000/time HTTP/1.1

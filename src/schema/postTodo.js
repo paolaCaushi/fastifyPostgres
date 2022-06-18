@@ -5,7 +5,9 @@ const postTodo = {
             type: "object",
             properties: {
                 title: {type: 'string'},
-                completed: {type: 'boolean'}
+                completed: {type: 'boolean'},
+                status: {type: 'boolean'},
+                gross_amount: {type: 'number'}
               },
 
         },
